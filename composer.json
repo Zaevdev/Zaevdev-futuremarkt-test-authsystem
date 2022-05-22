@@ -1,0 +1,21 @@
+{
+  "name": "zaevdev/test",
+  "authors": [
+    {
+      "name": "AlexanderZaev",
+      "email": "zaevdev@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "./"
+    }
+  },
+  "require": {
+    "ext-pdo": "*",
+    "guzzlehttp/guzzle": "^7.0",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-curl": "*"
+  }
+}
