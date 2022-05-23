@@ -14,11 +14,11 @@ class BinanceClient extends BaseClient
 
     public static function getCurrencyRate(): array
     {
-        $response = self::get(Config::get('BINANCE_DOMAIN') . self::LINK, self::getHeader());
         try {
+            $response = self::get(Config::get('BINANCE_DOMAIN') . self::LINK, self::getHeader());
             return json_decode($response, true, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $exception) {
-            throw new RuntimeException('Ошибка:', $exception);
+            return ['error' => 'Не удалось получить данные с Binance API [' . $exception->getMessage() . ']'];
         }
     }
 

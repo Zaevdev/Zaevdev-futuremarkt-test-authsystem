@@ -16,7 +16,7 @@ class BaseClient
 
             return $response->getBody()->getContents();
         } catch (GuzzleException) {
-            throw new RuntimeException("Запрос к $link не доступен.");
+            return 'error';
         }
     }
 }

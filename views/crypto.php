@@ -6,9 +6,12 @@ use app\core\Application;
 <h1 class="text-center">Welcome, <?php
     echo Application::$app->user->firstname . " " . Application::$app->user->lastname; ?></h1>
 
-<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
     <?php
     /** @var array $valutes */
+    if(!isset($valutes['error'])){ ?>
+<div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <?php
     foreach ($valutes as $valute) { ?>
         <div class="col">
             <div class="card mb-4 rounded-3 shadow-sm">
@@ -24,5 +27,9 @@ use app\core\Application;
             </div>
         </div>
     <?php
-    } ?>
+    }} else { ?>
+        <div class="alert alert-danger text-center" role="alert">
+            <?php echo $valutes['error'] ?>
+        </div>
+   <?php } ?>
 </div>
